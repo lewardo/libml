@@ -1,5 +1,7 @@
 #pragma once
 
+#include <type_traits>
+
 #include "types.h"
 
 #define ifnt(c) if (!(c))
