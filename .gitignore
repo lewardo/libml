@@ -2,6 +2,9 @@
 build
 install
 
+# vscode
+.vscode
+
 # Prerequisites
 *.d
 
