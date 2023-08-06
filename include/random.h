@@ -31,10 +31,10 @@ void generate(T &value) {
 };
 
 template <typename T>
-  requires std::ranges::range<T> && requires { typename T::value_type; }
+  requires std::ranges::range<T>
 void generate(T &container) {
   std::for_each(std::execution::par_unseq, container.begin(), container.end(),
-                generate);
+                [&](typename T::value_type &i) { generate(i); });
 };
 };  // namespace detail
 
