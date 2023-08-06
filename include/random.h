@@ -36,9 +36,9 @@ void generate(T &container) {
   std::for_each(std::execution::par_unseq, container.begin(), container.end(),
                 generate);
 };
-}; // namespace detail
+};  // namespace detail
 
 using detail::generate;
 
-}; // namespace random
-}; // namespace ml
+};  // namespace random
+};  // namespace ml

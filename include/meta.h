@@ -7,11 +7,13 @@
 namespace ml {
 namespace meta {
 
-template <size_t... Is> struct sequence {};
+template <size_t... Is>
+struct sequence {};
 
 namespace detail {
 
-template <size_t N, size_t... Is> constexpr auto make_index_sequence_impl() {
+template <size_t N, size_t... Is>
+constexpr auto make_index_sequence_impl() {
   if constexpr (N == 0)
     return sequence<Is...>{};
   else
@@ -72,7 +74,8 @@ using all_same = all_satisfy<std::is_same, T, Ts...>;
 template <size_t N>
 using index_sequence_t = decltype(detail::make_index_sequence_impl<N>());
 
-template <size_t N> constexpr auto index_sequence = index_sequence_t<N>{};
+template <size_t N>
+constexpr auto index_sequence = index_sequence_t<N>{};
 
 template <size_t N, size_t V>
 using repeat_sequence_t = decltype(detail::make_repeat_sequence_impl<N, V>());
@@ -93,7 +96,7 @@ using satisfy_sequence_t =
 
 template <template <typename, typename> class P, typename T, typename... Ts>
 constexpr auto satisfy_sequence = satisfy_sequence_t<P, T, Ts...>{};
-}; // namespace detail
+};  // namespace detail
 
 using detail::all_satisfy, detail::all_either, detail::all_same;
 using detail::index_sequence_t, detail::index_sequence;
@@ -102,5 +105,5 @@ using detail::repeat_sequence_t, detail::repeat_sequence;
 using detail::satisfy_sequence_t, detail::satisfy_sequence;
 using detail::total_equals, detail::count_same;
 
-}; // namespace meta
-}; // namespace ml
+};  // namespace meta
+};  // namespace ml

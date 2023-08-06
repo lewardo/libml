@@ -9,6 +9,6 @@
 #define __CONCATENATE2(a, b) a##b
 
 #define ML_USING_DECL(NS) using namespace ::ml::NS;
-#define libml_using(...)                                                       \
-  using namespace ::ml;                                                        \
+#define libml_using(...) \
+  using namespace ::ml;  \
   FOR_EACH(ML_USING_DECL, __VA_ARGS__)
