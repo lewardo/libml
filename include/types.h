@@ -1,5 +1,7 @@
 #pragma once
 
+#include "tensor.h"
+
 namespace ml {
 namespace types {
 

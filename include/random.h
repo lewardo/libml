@@ -36,6 +36,7 @@ void generate(T &container) {
   std::for_each(std::execution::par_unseq, container.begin(), container.end(),
                 [&](typename T::value_type &i) { generate(i); });
 };
+
 };  // namespace detail
 
 using detail::generate;
